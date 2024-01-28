@@ -1,6 +1,6 @@
 from selene import browser, have, be, by
 from demoqa_tests import resource
-
+import os
 
 class RegistrationPage:
     def open_registration_page(self):
