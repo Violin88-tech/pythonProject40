@@ -15,12 +15,13 @@ class RegistrationPage:
         browser.element('#firstName').type(user.first_name)
         browser.element('#lastName').type(user.last_name)
         browser.element('#userEmail').type(user.user_email)
-        if user.user_gender == 'Male':
-            browser.element('[for="gender-radio-1"]').double_click()
-        elif user.user_gender == "Female":
-            browser.element('[for="gender-radio-2"]').double_click()
-        else:
-            browser.element('[for="gender-radio-3"]').double_click()
+        # if user.user_gender == 'Male':
+        #     browser.element('[for="gender-radio-1"]').double_click()
+        # elif user.user_gender == "Female":
+        #     browser.element('[for="gender-radio-2"]').double_click()
+        # else:
+        #     browser.element('[for="gender-radio-3"]').double_click()
+        browser.element('[for="gender-radio-2"]').click()
         browser.element('#userNumber').type(user.user_phone_number)
         browser.element('#dateOfBirthInput').click()
         browser.element('.react-datepicker__month-select').click().element(by.text(user.month)).click()
@@ -33,6 +34,7 @@ class RegistrationPage:
             browser.element('[for="hobbies-checkbox-2"]').click()
         elif user.user_hobby == 'Music':
             browser.element('[for="hobbies-checkbox-3"]').click()
+        #browser.element('#subjectsInput').type('Computer Science').press_enter()
         browser.element('#uploadPicture').send_keys(resource.path(user.user_picture))
         browser.element('#currentAddress').should(be.blank).type(user.user_current_address)
         browser.element('#react-select-3-input').type(user.user_state).press_enter()
