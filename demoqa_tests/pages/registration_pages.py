@@ -3,9 +3,13 @@ from demoqa_tests import resource
 
 
 class RegistrationPage:
+
     def open_registration_page(self):
         browser.open('/automation-practice-form')
         return self
+
+    def modal_form(self):
+        browser.element('[aria-label="Consent"]').click()
 
     def register(self, user):
         browser.element('#firstName').type(user.first_name)
